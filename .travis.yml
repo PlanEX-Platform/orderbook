@@ -1,0 +1,9 @@
+language: go
+services:
+  - docker
+script:
+- make build
+- test -f bin/amd64/ledger
+- make container
+- docker images | grep hirama/ledger-amd64
+- make test
